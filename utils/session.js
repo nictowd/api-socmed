@@ -5,5 +5,5 @@ function create(driver){
 }
 
 module.exports = (driver) => {
-  return { create }
+  return { driver,create }
 }
