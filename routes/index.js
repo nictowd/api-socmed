@@ -7,6 +7,9 @@ var router = express.Router();
 
 /* GET home page. */
 router.get('/', function(req, res, next) {
+  var session = session.create(
+    session.driver
+  )
   res.send(session)
 });
 
