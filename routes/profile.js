@@ -15,7 +15,7 @@ router.get('/:name', async(req,res) => {
       `match(user)<-[rl:profile
       ]-(profile) where profile
       .firstName = $name return 
-      user,profile`, req.params
+      user,profile, req.params
     )
     var row = users.records.map(
       function({_fields}){
