@@ -18,7 +18,7 @@ router.get('/:name', async(req,res) => {
       user,profile`, req.params
     )
     var rows = users.record.map(
-      
+      ({_fields}) => _fields
     )
     res.send(rows)
   }
