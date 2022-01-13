@@ -7,8 +7,7 @@
 var http = require('http');
 var app = require('../app');
 var debug = require('debug')('api-socmed:server');
-var driver = require('../utils/driver')(process.env);
-var newSession = require('../utils/session')(driver);
+
 
 
 /**
@@ -91,5 +90,4 @@ function onListening() {
     ? 'pipe ' + addr
     : 'port ' + addr.port;
   debug('Listening on ' + bind);
-  console.log(newSession)
 }
