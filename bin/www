@@ -6,8 +6,6 @@
 
 var http = require('http');
 var app = require('../app');
-var driver = require('../utils/driver');
-var session = require('../utils/session')(driver);
 var debug = require('debug')('api-socmed:server');
 
 
@@ -23,9 +21,7 @@ app.set('port', port);
  */
 
 var server = http.createServer(app);
-var newSession = session.create();
 
-console.log(newSession)
 
 /**
  * Listen on provided port, on all network interfaces.
