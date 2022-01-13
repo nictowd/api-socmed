@@ -17,7 +17,10 @@ router.get('/:name', async(req,res) => {
       .firstName = $name return 
       user,profile`, req.params
     )
-    res.send(users)
+    var rows = users.record.map(
+      
+    )
+    res.send(rows)
   }
   catch({message}){
     res.send(message)
