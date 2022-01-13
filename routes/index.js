@@ -6,7 +6,7 @@ var sessions = Session(dbDriver);
 var router = express.Router();
 
 /* GET home page. */
-router.get('/', function(req, res, next) {
+router.get('/', async(req,res) => {
   try{
     var session = sessions.create(
       sessions.driver
