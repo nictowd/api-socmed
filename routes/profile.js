@@ -18,7 +18,14 @@ router.get('/:name', async(req,res) => {
       user,profile`, req.params
     )
     var row = users.records.map(
-      ({_fields}) => _fields
+      function({_fields}){
+       var [_u] = _fields
+        .filter(({labels})
+          => labels 
+          == "user"
+        )
+        return _u
+      }
     )
     res.send(row)
   }
