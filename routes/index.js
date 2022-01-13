@@ -7,10 +7,10 @@ var router = express.Router();
 
 /* GET home page. */
 router.get('/', function(req, res, next) {
-  var session = session.create(
+  var newSession = session.create(
     session.driver
   )
-  res.send(session)
+  res.send(newSession)
 });
 
 module.exports = router;
