@@ -35,10 +35,20 @@ router.get('/:name', async(req,res) => {
         }
       }
     )
-    res.send(row)
+    if(row.length > 0){
+      res.status(200)
+      res.send(row)
+    }
+    else{
+      res.status(404).send(
+        'user not found'
+      )
+    }
   }
   catch({message}){
-    res.send(message)
+    res.status(500).send(
+      message
+    )
   }
 });
 
