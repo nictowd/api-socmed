@@ -7,6 +7,10 @@
 var http = require('http');
 var app = require('../app');
 var debug = require('debug')('api-socmed:server');
+var driver = require('../utils/driver')(process.env);
+var session = require('../utils/session')(driver)
+
+console.log(session)
 
 
 /**
