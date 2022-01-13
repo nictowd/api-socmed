@@ -12,10 +12,9 @@ router.get('/:_name', async(req,res) => {
       session.driver
     )
     var users = await create.run(
-      `match(usr)<-[rel:profile
-      ]-(profile) where profile
-      .firstName=$_name, return 
-      usr, profile`, req.params
+      `match(usr)<-[rel:profile]
+       -(profile) where profile.firstName=$_name, 
+      return usr, profile`, req.params
     )
     res.send(users)
   }
