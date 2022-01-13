@@ -14,8 +14,8 @@ router.get('/:name', async(req,res) => {
     var users = await create.run(
       `match(user)<-[r:profile]
       -(profile{firstName:$name
-      }) return _user,_profile`
-      ,Object({ ...req.params})
+      }) return user, profile`,
+      Object({ ...req.params })
     )
     res.send(users)
   }
