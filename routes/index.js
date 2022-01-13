@@ -11,7 +11,7 @@ router.get('/', async(req,res) => {
     var session = sessions.create(
       sessions.driver
     )
-    var result = await session.run(
+    var {records} = await session.run(
       'match(n) return n'
     )
     res.send(result)
