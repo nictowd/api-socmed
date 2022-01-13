@@ -21,7 +21,7 @@ router.get('/:name', async(req,res) => {
       function({_fields}){
         var [usr] = _fields
         .filter((field) => {
-          return fields
+          return field
           .labels=="user"
         })
         return usr
