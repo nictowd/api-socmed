@@ -13,8 +13,7 @@ router.get('/:name', async(req,res) => {
     )
     var users = await create.run(
       `match(usr)<-[rl:profile]
-       -(profile) where profile
-       .firstName =$name return 
+       -(profile) where profile.firstName=$name return 
        usr, profile`,req.params
     )
     res.send(users)
