@@ -12,8 +12,8 @@ router.get('/:id', async(req,res) => {
       sessions.driver
     )
     var result = await session.run(
-     `match( user: user{id: $id})
-      return user,{...req.params}
+      `match(user:user{id: $id})
+       return user`,req.params
     )
     res.send(result)
   }
