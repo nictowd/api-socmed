@@ -6,17 +6,16 @@ var session = Session(driver);
 var router = express.Router();
 
 /* GET home page. */
-router.get('/:name', async(req,res) => {
+router.get('/:_name', async(req,res) => {
   try{
     var create  = session.create(
       session.driver
     )
     var users = await create.run(
       `match(usr)<-[rel:profile
-      ]-(profile:profile) where 
-      profile.firstName = $name
-      return usr,profile`,
-    
+      ]-(profile) where profile
+      .firstName=$_name, return 
+      usr, profile`, req.params
     )
     res.send(users)
   }
