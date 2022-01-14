@@ -1,5 +1,5 @@
+git config --global user.email "kogebngadak@gmail.com"
 git config --global user.name "ikbalgithub"
-git config --global user.email "github158"
 git add .
 git commit -m "update"
 git push origin main
