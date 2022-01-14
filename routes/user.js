@@ -7,19 +7,7 @@ var router = express.Router();
 
 /* GET home page. */
 router.get('/:id', async(req,res) => {
-  try{
-    var session = sessions.create(
-      sessions.driver
-    )
-    var result = await session.run(
-      `match(user:user{id: $id})
-       return user`,req.params
-    )
-    res.send(result)
-  }
-  catch({message}){
-    res.send(message)
-  }
+  res.send('ok')
 });
 
 module.exports = router;
