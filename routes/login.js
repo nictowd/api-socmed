@@ -19,7 +19,7 @@ router.post('/submit',async(req,res,next) => {
     )
     var users = await create.run(
      `match(user:user{user:$user
-     ,$password:$psswrd}) return
+     ,password:$pw}) return user
      user.id as userId`,req.body
     )
     res.status(200).send(users)
