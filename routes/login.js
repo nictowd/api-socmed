@@ -7,7 +7,7 @@ var router = express.Router();
 
 
 router.post('/', (req, res, next) => {
-  passport.authenticate('local',(e,u) => {
+  passport.authenticate('local',(e,u) => {à
     res.send({e,u})
   })(req, res, next)
 })
@@ -18,10 +18,9 @@ router.post('/submit',async(req,res,next) => {
       session.driver
     )
     var users = await create.run(
-      `match(user:user{
-         username:$username,
-         password:$password
-       }) return user`,req.body
+     `match(user:user{user:$user
+     ,$password:$psswrd}) return
+     user.id as userId`,req.body
     )
     res.status(200).send(users)
   }
