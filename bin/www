@@ -6,6 +6,7 @@
 
 var http = require('http');
 var app = require('../app');
+var passport = require('passport')
 var debug = require('debug')('api-socmed:server');
 
 
@@ -22,6 +23,7 @@ app.set('port', port);
  */
 
 var server = http.createServer(app);
+passporr
 
 
 /**
