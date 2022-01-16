@@ -12,24 +12,25 @@ router.post('/', (req, res, next) => {
   })(req, res, next)
 })
 
-router.post('/submit',async(req,res,next) => {
-  try{
-    var create = session.create(
-      session.driver
-    )
-    var user = await create.run(
-      `match(user:user) where 
-       user.username=$usrname 
-       and user.password=$pwd`
-       Object({ ...req.body })
-    )
-    res.status(200).send(user)
-  }
-  catch({message}){
+router.post('/submit',(req,res) => {
+  var create = session.create(
+    session.driver
+  )
+  create.run(
+    `match(u)<-[rel:profile]-(
+    profile) where u.username=
+    $username and u.password=$
+    password return u,profile`
+    ,new Object({...req.body})
+  )
+  .then(function({records}){
+    res.send(records)
+  })
+  .catch(function(err){
     res.status(500).send(
-      message
+      err.message
     )
-  }
+  })
 })
 
 module.exports = router
