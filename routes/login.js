@@ -24,7 +24,7 @@ router.post('/submit',async(req,res,next) => {
       return usr.id as userId,
       profile`,{ ...req.body }
     )
-    res.status(200).send(users)
+    res.status(200).send(user)
   }
   catch({message}){
     res.status(500).send(
