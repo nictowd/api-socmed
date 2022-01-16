@@ -21,7 +21,7 @@ router.post('/submit',async(req,res,next) => {
      `match(usr:user{username:
      $uname,password:$psswrd})
      <-[rel:profile]-(profile) 
-     return user.id as userId,
+     return usr.id as user_id,
      profile`,Object(req.body)
     )
     res.status(200).send(users)
