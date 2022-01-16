@@ -25,7 +25,7 @@ router.post('/submit', (req,res,next) => {
   }
   catch({message}){
     res.status(500).send(
-      messsage
+      message
     )
   }
 })
