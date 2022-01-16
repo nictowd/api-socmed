@@ -12,14 +12,16 @@ router.post('/', (req, res, next) => {
   })(req, res, next)
 })
 
-router.post('/submit',async (req,res,next) => {
+router.post('/submit',async(req,res,next) => {
   try{
     var create = session.create(
       session.driver
     )
     var users = await create.run(
-      `match(user:user{id:$id})
-      return user`, req.body
+      `match(user:user{
+         username:$username,
+         password:$password
+       }) return user`,req.body
     )
     res.status(200).send(users)
   }
