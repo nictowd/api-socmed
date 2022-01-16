@@ -93,7 +93,7 @@ function onListening() {
     : 'port ' + addr.port;
   debug('Listening on ' + bind);
 }
-
-async function localStrategy(username,password,done){
+ 
+function localStrategy(username,password,done){
   done(null,{username,password})
 }
