@@ -18,10 +18,10 @@ router.post('/submit',async(req,res,next) => {
       session.driver
     )
     var user = await create.run(
-     `match(usr:user{username:$
-     uname,password:$psswd})<-[
-     rl:profile]-(p) return usr
-     ,profile`,Object(req.body)
+      `match(user:user) where 
+       user.username=$usrname 
+       and user.password=$pwd`
+       Object({ ...req.body })
     )
     res.status(200).send(user)
   }
