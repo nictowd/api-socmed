@@ -2,8 +2,10 @@ var passport = require('passport')
 var express = require('express');
 var router = express.Router();
 
-router.get('/', (req, res, next) => {
-  res.send('ok')
+router.post('/', (req, res, next) => {
+  passport.authenticate('local',(e,u) => {
+    res.send({e,u})
+  })(req, res, next)
 })
 
 module.exports = router
