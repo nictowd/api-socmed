@@ -24,7 +24,9 @@ router.post('/submit',(req,res) => {
     ,new Object({...req.body})
   )
   .then(function({records}){
-    res.send(records)
+    if(records.length > 0){
+      res.send(records)
+    }
   })
   .catch(function(err){
     res.status(500).send(
