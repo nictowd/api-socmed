@@ -7,7 +7,7 @@ var router = express.Router();
 
 /* GET home page. */
 router.get('/:id', async(req,res) => {
-  res.send('user')
+  res.send('xxxxxx')
 });
 
 module.exports = router;
