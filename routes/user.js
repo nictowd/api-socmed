@@ -7,7 +7,7 @@ var router = express.Router();
 
 /* GET home page. */
 router.get('/:id', async(req,res) => {
-  res.send('botak')
+  res.send('takbo')
 });
 
 module.exports = router;
