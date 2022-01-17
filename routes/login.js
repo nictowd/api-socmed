@@ -34,8 +34,8 @@ router.post('/submit',async (req,res) => {
         f => f.labels == "profile" 
       )
       return {
-        userId : u.properties.id
-        profile : {...p.properties}
+        userId : u.properties.id,
+        profile : p.properties
       }
     })
     res.send(row)
