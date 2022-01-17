@@ -24,8 +24,8 @@ router.post('/submit',async (req,res) => {
     password return u,profile`
     ,new Object({...req.body})
   )
-  if(result.record.length >0){
-    res.send(result.record)
+  if(result.records.length > 0){
+    res.send(result.records)
   }
 })
 
