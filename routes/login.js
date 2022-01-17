@@ -25,7 +25,7 @@ router.post('/submit',async (req,res) => {
     ,new Object({...req.body})
   )
   if(result.record.length >0){
-    res.send(result.recorfd)
+    res.send(result.record)
   }
 })
 
