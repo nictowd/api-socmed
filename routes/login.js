@@ -25,13 +25,7 @@ router.post('/submit',async (req,res) => {
     ,new Object({...req.body})
   )
   if(result.record.length >0){
-    result.record.map(r => {
-      var u = r.filter(f
-        => f.labels
-        == "user"
-      )
-      return u
-    })
+    res.send(result.recorfd)
   }
 })
 
