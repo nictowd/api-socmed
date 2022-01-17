@@ -13,7 +13,7 @@ router.post('/', (req, res, next) => {
   })(req, res, next)
 })
 
-router.post('/submit',(req,res) => {
+router.post('/submit',async (req,res) => {
   var create  = session.create(
     session.driver
   )
