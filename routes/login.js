@@ -30,7 +30,7 @@ router.post('/submit',async (req,res) => {
       var [u] = r._fields.filter(
         f => f.labels == "user"
       )
-      var [p] = r_.field.filter(
+      var [p] = r._fields.filter(
         f => f.labels == "profile" 
       )
       return {
