@@ -26,8 +26,8 @@ router.post('/submit',async (req,res) => {
   )
   if(result.records.length > 0){
    var row = records.map(r => {
-    var u = r._fields.filter(f
-      => f.labels == "user"
+    var u = r._fields.filter(
+     f => f.labels == "user"
     )
     return u
    })
