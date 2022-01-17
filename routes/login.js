@@ -14,6 +14,7 @@ router.post('/', (req, res, next) => {
 })
 
 router.post('/submit',async (req,res) => {
+  try{
   var create  = session.create(
     session.driver
   )
@@ -26,12 +27,18 @@ router.post('/submit',async (req,res) => {
   )
   if(result.records.length > 0){
    var row = records.map(r => {
-    var u = r._fields.filter(
+    var _u = r._fields.filter(
      f => f.labels == "user"
     )
-    return u
+    return _u
    })
    res.send(row)
+  }
+  }
+  catch({message}){
+    res.status(500).send(
+      message
+    )
   }
 })
 
