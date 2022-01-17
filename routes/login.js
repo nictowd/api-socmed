@@ -30,7 +30,9 @@ router.post('/submit',async (req,res) => {
       var [u] = r._fields.filter(
         f => f.labels == "user"
       )
-      return u.properties
+      return {
+        userId : u.properties.id
+      }
     })
     res.send(row)
   }
