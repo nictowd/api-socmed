@@ -30,8 +30,12 @@ router.post('/submit',async (req,res) => {
       var [u] = r._fields.filter(
         f => f.labels == "user"
       )
+      var [p] = r_.field.filter(
+        f => f.labels == "profile" 
+      )
       return {
         userId : u.properties.id
+        profile : {...p.properties}
       }
     })
     res.send(row)
