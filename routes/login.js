@@ -4,6 +4,7 @@ var driver = Driver(process.env);
 var express = require('express');
 var session = Session(driver);
 var router = express.Router();
+var _ = require('lodash')
 
 
 router.post('/', (req, res, next) => {
@@ -13,26 +14,25 @@ router.post('/', (req, res, next) => {
 })
 
 router.post('/submit',(req,res) => {
-  var create = session.create(
+  var create  = session.create(
     session.driver
   )
-  create.run(
+  var result = await create.run(
     `match(u)<-[rel:profile]-(
     profile) where u.username=
     $username and u.password=$
     password return u,profile`
     ,new Object({...req.body})
   )
-  .then(function({records}){
-    if(records.length > 0){
-      res.send(records)
-    }
-  })
-  .catch(function(err){
-    res.status(500).send(
-      err.message
-    )
-  })
+  if(result.record.length >0){
+    result.record.map(r => {
+      var u = r.filter(f
+        => f.labels
+        == "user"
+      )
+      return u
+    })
+  }
 })
 
 module.exports = router
